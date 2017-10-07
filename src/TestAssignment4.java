@@ -8,7 +8,6 @@ public class TestAssignment4 {
 	@Test
 	public void testPlayRound() {
 		Player player = new Player("TestPlayer", 100);
-		Integer actual = player.getBalance();
 		Integer expected = 105;
 		Dice d1 = org.mockito.Mockito.mock(Dice.class);
 		Dice d2 = org.mockito.Mockito.mock(Dice.class);
@@ -20,6 +19,7 @@ public class TestAssignment4 {
 		
 		Game game = new Game(d1, d2, d3);
 		game.playRound(player, DiceValue.CROWN, 5);
+		Integer actual = player.getBalance();
 		
 		Assert.assertEquals(expected, actual);
 	}
