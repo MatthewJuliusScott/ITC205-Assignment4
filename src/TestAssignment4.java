@@ -23,5 +23,10 @@ public class TestAssignment4 {
 		
 		Assert.assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testBalanceExceedsLimitBy() {
+		
+	}
 
 }
