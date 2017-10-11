@@ -26,7 +26,15 @@ public class TestAssignment4 {
 	
 	@Test
 	public void testBalanceExceedsLimitBy() {
+		int bet = 5;
+		int balance = 5;
+		int limit = 0;
+		Player player = new Player("TestPlayer", balance);
+		player.setLimit(limit);
+		Boolean exceeds = player.balanceExceedsLimitBy(bet);
 		
+		String msg = "Balance %d minus bet %d did not exceed limit %d";
+		Assert.assertTrue(String.format(msg, balance, bet, limit), exceeds);
 	}
 
 }
