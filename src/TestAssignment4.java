@@ -1,5 +1,7 @@
 import static org.mockito.Mockito.when;
 
+import java.util.Random;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -97,6 +99,35 @@ public class TestAssignment4 {
 		double actual = (double) (winCount) / ((double)winCount + (double)loseCount);
 		Assert.assertEquals(expected, actual, 0.002);
 
+	}
+	
+	@Test
+	public void testRandomDistribution() {
+
+		int[] values = new int[6];
+		Random random = new Random();
+		
+		for (int i=0; i < 10000; i++) {
+			values[random.nextInt(6)]++;
+		}
+
+		for (int value : values) {
+			System.out.println(value);
+		}
+	}
+	
+	@Test
+	public void testDiceValueDistribution() {
+
+		int[] values = new int[6];
+		
+		for (int i=0; i < 10000; i++) {
+			values[DiceValue.getRandom().ordinal()]++;
+		}
+
+		for (int value : values) {
+			System.out.println(value);
+		}
 	}
 
 }
