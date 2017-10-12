@@ -1,9 +1,5 @@
 import static org.mockito.Mockito.when;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -70,8 +66,7 @@ public class TestAssignment4 {
 		Dice d1 = new Dice();
 		Dice d2 = new Dice();
 		Dice d3 = new Dice();
-
-		Player player = new Player("Test Player", 100);
+		
 		Game game = new Game(d1, d2, d3);
 
 		int maxTurns = 1000000;
@@ -79,14 +74,15 @@ public class TestAssignment4 {
 		int winCount = 0;
 		int loseCount = 0;
 
+		String name = "Test Player";
+		int balance = 100000000;
+		int limit = 0;
+		Player player = new Player(name, balance);
+		player.setLimit(limit);
+		int bet = 5;
+				
 		for (int turn = 0; turn < maxTurns; turn++) {
-			String name = "Test Player";
-			int balance = 10000000;
-			int limit = 0;
-			player = new Player(name, balance);
-			player.setLimit(limit);
-			int bet = 5;
-			
+
 			DiceValue pick = DiceValue.getRandom();
 			int winnings = game.playRound(player, pick, bet);
 
@@ -97,9 +93,9 @@ public class TestAssignment4 {
 			}
 		}
 
-		float expected = 0.42f;
-		float actual = (float) (winCount * 100) / (winCount + loseCount);
-		Assert.assertEquals(expected, actual, 0.009f);
+		double expected = 0.42;
+		double actual = (double) (winCount) / ((double)winCount + (double)loseCount);
+		Assert.assertEquals(expected, actual, 0.002);
 
 	}
 
