@@ -165,7 +165,7 @@ public class TestAssignment4 {
 
 		double expected = 0.42;
 		double actual = (double) (winCount) / ((double)winCount + (double)loseCount);
-		Assert.assertEquals(expected, actual, 0.002);
+		Assert.assertEquals(expected, actual, 0.009);
 	}
 
 	@Test
